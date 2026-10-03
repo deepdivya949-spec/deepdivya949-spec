@@ -1,1 +1,217 @@
 
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>देश चर्चा | Desh Charcha - Short News & Kahaniyan</title>
+  <style>
+    :root {
+      --primary: #c93b2b;
+      --primary-dark: #9e2a1d;
+      --bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --text: #212529;
+      --muted: #6c757d;
+      --border: #e9ecef;
+      --badge-news: #0d6efd;
+      --badge-itihas: #d97706;
+      --badge-katha: #059669;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Devanagari", sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 50px;
+    }
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 16px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    header h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    header p {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+    .filters {
+      display: flex;
+      gap: 8px;
+      padding: 14px 16px;
+      overflow-x: auto;
+      white-space: nowrap;
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+    .filters button {
+      background: #f1f3f5;
+      border: none;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text);
+    }
+    .filters button.active {
+      background: var(--primary);
+      color: white;
+    }
+    .container {
+      max-width: 650px;
+      margin: 16px auto;
+      padding: 0 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      color: white;
+      text-transform: uppercase;
+    }
+    .badge.news { background: var(--badge-news); }
+    .badge.itihas { background: var(--badge-itihas); }
+    .badge.katha { background: var(--badge-katha); }
+    .date {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .card h2 {
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+    .card p {
+      font-size: 14px;
+      color: #374151;
+      margin-bottom: 12px;
+    }
+    .card-footer {
+      display: flex;
+      justify-content: flex-end;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+    }
+    .share-btn {
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>देश चर्चा</h1>
+    <p>गाँव, देश की ख़बरें और सच्ची ऐतिहासिक कहानियाँ</p>
+  </header>
+
+  <div class="filters">
+    <button class="active" onclick="filterCategory('all')">सभी</button>
+    <button onclick="filterCategory('news')">ख़बरें (Short News)</button>
+    <button onclick="filterCategory('itihas')">इतिहास (Explainers)</button>
+    <button onclick="filterCategory('katha')">गाँव-कथा (Stories)</button>
+  </div>
+
+  <div class="container" id="postsContainer">
+    <!-- Post 1: Short News -->
+    <article class="card" data-cat="news">
+      <div class="card-top">
+        <span class="badge news">ताज़ा ख़बर</span>
+        <span class="date">आज की बात</span>
+      </div>
+      <h2>ग्रामीण भारत में सौर ऊर्जा (Solar Power) का बड़ा विस्तार</h2>
+      <p>गाँवों में सिंचाई और घरेलू बिजली के लिए सोलर पंपों और रूफटॉप पैनल्स को तेज़ी से अपनाया जा रहा है। सरकार की योजनाओं से किसानों का बिजली खर्च आधा हो गया है।</p>
+      <div class="card-footer">
+        <a class="share-btn" href="https://api.whatsapp.com/send?text=देश%20चर्चा:%20ग्रामीण%20भारत%20में%20सोलर%20ऊर्जा%20का%20विस्तार!" target="_blank">WhatsApp शेयर</a>
+      </div>
+    </article>
+
+    <!-- Post 2: Itihas Explainer -->
+    <article class="card" data-cat="itihas">
+      <div class="card-top">
+        <span class="badge itihas">इतिहास</span>
+        <span class="date">विरासत</span>
+      </div>
+      <h2>कोणार्क सूर्य मंदिर के निर्माण की वो अद्भुत तकनीक</h2>
+      <p>13वीं शताब्दी में बने कोणार्क मंदिर के पत्थरों के बीच लोहे के क्लैंप और चुम्बकीय संतुलन का ऐसा इस्तेमाल हुआ था जिसने आधुनिक वैज्ञानिकों को भी हैरान कर दिया। जानिए कैसे बना था यह अजूबा।</p>
+      <div class="card-footer">
+        <a class="share-btn" href="https://api.whatsapp.com/send?text=देश%20चर्चा:%20कोणार्क%20सूर्य%20मंदिर%20का%20इतिहास!" target="_blank">WhatsApp शेयर</a>
+      </div>
+    </article>
+
+    <!-- Post 3: Desi Story -->
+    <article class="card" data-cat="katha">
+      <div class="card-top">
+        <span class="badge katha">गाँव-कथा</span>
+        <span class="date">चौपाल से</span>
+      </div>
+      <h2>पीपल के चबूतरे वाली न्याय पंचायत</h2>
+      <p>हमारे कस्बों और गाँवों की चौपाल केवल बैठने की जगह नहीं थी, बल्कि आपसी भाईचारे और बिना कोर्ट-कचहरी के मसले सुलझाने का सबसे बड़ा केंद्र थी। जानिए उस पुरानी परंपरा के किस्से।</p>
+      <div class="card-footer">
+        <a class="share-btn" href="https://api.whatsapp.com/send?text=देश%20चर्चा:%20चौपाल%20की%20कहानी!" target="_blank">WhatsApp शेयर</a>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    function filterCategory(category) {
+      const buttons = document.querySelectorAll('.filters button');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-cat') === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
